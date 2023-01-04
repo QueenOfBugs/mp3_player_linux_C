@@ -380,7 +380,12 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 #+end_src
-** Makefile
+
+上面代码已经实现了基本的播放功能,但如果我要添加更多功能,上面的代码就不能这样组织,必
+须编写成函数的形式,我暂时的想法是播放音乐的函数最好是只用接收音频文件的文件路径/
+名,然后调用该函数就能播放该音频文件了,因为如果要扩展功能肯定不会再用命令行参数输
+入音频文件的路径了,
+** 编译运行
 用于编译上面最终代码的 Makefile:
 #+begin_src makefile
 play_test: play_test.o
@@ -389,4 +394,17 @@ paly_test.o:play_test.c
 	gcc play_text.c -o play_test.o
 clean:
 	rm play.o play
+#+end_src
+
+编译命令:
+#+begin_src sh :results scalar
+make play_test
+#+end_src
+
+#+RESULTS:
+: make: 'play_test' is up to date.
+
+播放测试文件 boo.mp3
+#+begin_src sh
+./play_test boo.mp3
 #+end_src

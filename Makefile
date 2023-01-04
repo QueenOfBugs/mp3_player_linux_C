@@ -3,4 +3,4 @@ play_test: play_test.o
 paly_test.o:play_test.c
 	gcc play_text.c -o play_test.o
 clean:
-	rm play.o play
+	rm play_test.o play_test
